@@ -7,4 +7,5 @@ PKG_CHECK_MODULES([gtk], [gtk+-2.0])
 PKG_CHECK_MODULES([gdk], [gdk-2.0])
 PKG_CHECK_MODULES([glib], [glib-2.0])
 PKG_CHECK_MODULES([pcre], [libpcre])
+AC_CONFIG_FILES(Makefile)
 AC_OUTPUT
