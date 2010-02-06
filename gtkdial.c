@@ -1,7 +1,7 @@
 /*
  * gtkdial - desktop dialer addon for gtk
  * copyright (c) 2010 Geo Carncross
- * URL: http://gpl.internetconnection.net/
+ * URL: http://github.com/geocar/gtkdial
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
