@@ -1,0 +1,16 @@
+These are some (potential) future directions for gtkdial
+
+* Figure out how a gmodule can support internationalization
+* An interface to configure dialing plans (help in recognizing phone numbers)
+* A program for interpreting dialing plans, and converting to a canonical form 
+* Generalize gtkdial to support sending email when an email address is "detected"
+* An interface to control sip: and tel: url handlers, and point them at the dialer interface
+* A control panel for configuring the dialer (and plugable dialers)
+* Convert the dialer-interface to using dbus
+* Add support for a WEBKIT_WEB_VIEW and/or other types that support populate-poup
+* Get views containing hyperlinks to underline telephone numbers (epiphany support)
+* Firefox and/or chromium support
+
+I may or may not implement them. If you're interested in developing one of them,
+let me know and I'll provide advice.
+

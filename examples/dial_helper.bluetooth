@@ -1,0 +1,17 @@
+#!/bin/sh
+# this is a dial_helper implementation that uses your bluetooth handsfree
+# to make a telephone call
+#
+# to make this work, configure rfcomm0 (or $phone_rfcomm) to point to
+# the handsfree port: rfcomm bind rfcomm0 xx:xx:xx:xx:xx:xx 3
+# 
+phone_rfcomm=rfcomm0
+
+if [ "x$1" = "x" ]; then echo "Usage: $0 +14108205678"; exit 1; fi
+
+if [ -f "$HOME/.bluetooth_phone_settings" ]; then
+	# put settings in here
+	. "$HOME/.bluetooth_phone_settings"
+fi
+exec chat -e -s -v ABORT ERROR '' "AT+CHUP " "OK" "ATD$1 " "OK" \
+		</dev/$phone_rfcomm >/dev/$phone_rfcomm

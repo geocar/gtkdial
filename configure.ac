@@ -1,0 +1,10 @@
+AC_INIT(gtkdial, 1.0.0)
+AM_INIT_AUTOMAKE()
+AC_CONFIG_SRCDIR(configure.ac)
+AC_PROG_CC
+AC_PROG_LIBTOOL
+PKG_CHECK_MODULES([gtk], [gtk+-2.0])
+PKG_CHECK_MODULES([gdk], [gdk-2.0])
+PKG_CHECK_MODULES([glib], [glib-2.0])
+PKG_CHECK_MODULES([pcre], [libpcre])
+AC_OUTPUT

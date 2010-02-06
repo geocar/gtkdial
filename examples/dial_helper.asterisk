@@ -1,0 +1,24 @@
+#!/bin/sh
+# this is a dial_helper implementation that tickles a remote asterisk install that has the
+# manager (1) interface enabled, and has the ajam (2) interface enabled
+#
+# [1] http://www.voip-info.org/wiki/view/Asterisk+manager+API
+# [2] http://www.voip-info.org/wiki/view/Aynchronous+Javascript+Asterisk+Manager+(AJAM)
+#
+phone_server="example.com:8088/asterisk"
+phone_user=1234
+phone_secret=1234
+phone_channel="SIP/$phone_user"
+phone_context=default
+
+if [ "x$1" = "x" ]; then echo "Usage: $0 +14108205678"; exit 1; fi
+
+if [ -f "$HOME/.asterisk_phone_settings" ]; then
+	# put settings in here
+	. "$HOME/.asterisk_phone_settings"
+fi
+
+exten="`echo "$1" | sed -e 's/^\+/%2B/'`"
+cookie_jar="$HOME/.asterisk_cookies.txt" 
+wget -O- --save-cookies "$cookie_jar" "http://$phone_server/manager?action=login&username=$phone_user&secret=$phone_secret"
+wget -O- --load-cookies "$cookie_jar" "http://$phone_server/manager?action=originate&channel=$phone_channel&context=$phone_context&exten=$exten&context=$phone_context&priority=1"

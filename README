@@ -1,0 +1,24 @@
+gtkdial adds a "dial" menu option to all your gtk popup menus,
+whenever it notices you're near a telephone number.
+
+To use it:
+
+1. Create a script called "dial_helper" and put it in your path.  Look in examples/*
+   for some samples that work for Asterisk and Ekiga/GNOME users.
+
+2. Run ./configure && make && sudo make install
+
+3. Make sure wherever you install it, you add that directory to your ld.so.conf:
+
+	sudo sh -c 'echo /usr/local/lib/gtk-2.0/modules >> /etc/ld.so.conf'
+	sudo ldconfig -v
+
+4. Arrange for gtkdial to be loaded at login-time. Most GNOME systems have a ~/.gnomerc
+   that you can use:
+
+	echo GTK_MODULES=${GTK_MODULES}:gtkdial >> ~/.gnomerc
+	echo export GTK_MODULES >> ~/.gnomerc
+
+5. Logout, login.
+
+
