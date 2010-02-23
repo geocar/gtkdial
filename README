@@ -6,6 +6,9 @@ To use it:
 1. Create a script called "dial_helper" and put it in your path.  Look in examples/*
    for some samples that work for Asterisk and Ekiga/GNOME users.
 
+   (Optional) Tell GNOME to use dial_helper for tel: urls by running:
+	sh examples/register_gnome.sh
+
 2. Run ./configure && make && sudo make install
 
 3. Make sure wherever you install it, you add that directory to your ld.so.conf:
