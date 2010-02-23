@@ -13,5 +13,6 @@ if [ -f "$HOME/.bluetooth_phone_settings" ]; then
 	# put settings in here
 	. "$HOME/.bluetooth_phone_settings"
 fi
-exec chat -e -s -v ABORT ERROR '' "AT+CHUP " "OK" "ATD$1 " "OK" \
+n="`echo "$1" | sed -e 's/^tel://'`"
+exec chat -e -s -v ABORT ERROR '' "AT+CHUP " "OK" "ATD$n " "OK" \
 		</dev/$phone_rfcomm >/dev/$phone_rfcomm

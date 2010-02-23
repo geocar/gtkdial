@@ -2,4 +2,5 @@
 # this is a dial_helper implementation for ekiga users
 #
 if [ "x$1" = "x" ]; then echo "Usage: $0 +14108205678"; exit 1; fi
-exec ekiga -c "sip:$1"
+n="`echo "$1" | sed -e 's/^tel://'`"
+exec ekiga -c "sip:$n"
